@@ -1,0 +1,26 @@
+.container {
+    margin: 0 auto;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+    text-align: center;
+    /*margin-top: 50px;*/
+}
+
+.title {
+    font-size: 2em;
+    color: #ff0000;
+}
+
+.description {
+    margin-top: 20px;
+    color: #666;
+}
+
+.link {
+    margin-top: 20px;
+    color: #0070f3;
+    text-decoration: underline;
+    cursor: pointer;
+}
