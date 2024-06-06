@@ -7,10 +7,13 @@
 body {
     font: 16px/1.4 'Jost', sans-serif;
     min-height: 100vh;
-    padding: 0px 130px;
-    margin: 15px 0px;
+    margin: 0;
+    padding: 0;
+    /*margin: 15px 0px;*/
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    background: #484283;
+    color: white;
+    background: white;
+
 }

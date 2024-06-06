@@ -1,0 +1,30 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+
+        .description {
+            display: flex;
+            flex-direction: column;
+            color: #444B58;
+
+            .title {
+                margin: 0;
+                font-weight: 600;
+                font-size: 16px;
+            }
+
+            .price {
+                margin: 0;
+                font-weight: 400;
+                font-size: 18px;
+            }
+        }
+    }
+}

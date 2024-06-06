@@ -1,13 +1,12 @@
-.header {
+.footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #FFFFFF80;
-    padding: 15px 130px 0px;
-    background: #484283;
+    padding: 18px 130px;
+    background: #444B58;
 
     .logo {
-        text-decoration: none;
         .text {
             font-size: 30px;
             color: white;
@@ -17,7 +16,7 @@
         }
     }
 
-    .navbar {
+    .links {
         display: flex;
         justify-content: space-between;
         align-items: center;

@@ -1,0 +1,32 @@
+.box {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #FFFFFF80;
+
+    .info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+
+        .question {
+            padding-top: 10px;
+            font-size: 20px;
+        }
+
+        .button {
+            background: #484283;
+            border-style: solid;
+            border-color: #484283;
+            cursor: pointer;
+        }
+    }
+
+    .answer {
+        margin: 0;
+        font-weight: 600;
+        font-size: 16px;
+        padding-bottom: 40px;
+    }
+}

@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background: white;
+    padding: 0px 130px 30px;
+
+    .title {
+        margin: 0;
+        font-size: 30px;
+        color: #444B58;
+        padding-top: 54px;
+    }
+
+    .search {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+
+        .input {
+            width: 100%;
+            padding: 8px 16px;
+            outline: none;
+            border-radius: 4px;
+            border: none;
+
+            background: #F6F6F6;
+            font-weight: 400;
+            font-size: 16px;
+            color: #161616;
+        }
+        .input::placeholder {
+            color: #B2B5BB;
+        }
+    }
+
+    .list {
+        display: grid;
+        grid-template-columns: repeat(3, 370px);
+        grid-column-gap: 35px;
+        grid-row-gap: 40px;
+    }
+
+    .show {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 60px;
+    }
+}

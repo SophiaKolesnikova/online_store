@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './styles.module.css';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
     return (
         <header className={styles.header}>
-            <div className={styles.logo}>
+            <Link to={'/'} className={styles.logo}>
                 <span className={styles.text}>Goods4you</span>
-            </div>
+            </Link>
             <nav>
                 <ul className={styles.navbar}>
                     <li>
@@ -20,10 +21,15 @@ const Header: React.FC = () => {
                         </a>
                     </li>
                     <li>
-                        <a href="#" className={styles.link}>
+                        <Link to={'/cart'} className={styles.link}>
                             Cart
-                            <img src="../../../public/cart.svg" alt="cart" />
-                        </a>
+                            <img
+                                src="../../../public/cart-link.svg"
+                                alt="cart"
+                            />
+                        </Link>
+
+                        {/*</a>*/}
                     </li>
                 </ul>
             </nav>

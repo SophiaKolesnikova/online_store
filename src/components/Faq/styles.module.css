@@ -1,0 +1,13 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    padding: 35px 270px 123px 290px;
+    background: #484283;
+
+    .title {
+        padding-bottom: 27px;
+        border-bottom: 1px solid #FFFFFF80;
+        margin: 0;
+        font-size: 30px;
+    }
+}

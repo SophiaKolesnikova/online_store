@@ -1,0 +1,92 @@
+export const data = [
+    {
+        id: '1',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $ ',
+        image: '../../../public/product.svg',
+    },
+    {
+        id: '2',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $',
+        image: '../../../public/product.svg',
+    },
+    {
+        id: '3',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $ ',
+        image: '../../../public/product.svg',
+    },
+    {
+        id: '4',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $ ',
+        image: '../../../public/product.svg',
+    },
+    {
+        id: '5',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $ ',
+        image: '../../../public/product.svg',
+    },
+    {
+        id: '6',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $ ',
+        image: '../../../public/product.svg',
+    },
+    {
+        id: '7',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $ ',
+        image: '../../../public/product.svg',
+    },
+    {
+        id: '8',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $ ',
+        image: '../../../public/product.svg',
+    },
+    {
+        id: '9',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $ ',
+        image: '../../../public/product.svg',
+    },
+    {
+        id: '10',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $ ',
+        image: '../../../public/product.svg',
+    },
+    {
+        id: '11',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $ ',
+        image: '../../../public/product.svg',
+    },
+    {
+        id: '12',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $ ',
+        image: '../../../public/product.svg',
+    },
+    {
+        id: '13',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $ ',
+        image: '../../../public/product.svg',
+    },
+    {
+        id: '14',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $ ',
+        image: '../../../public/product.svg',
+    },
+    {
+        id: '15',
+        title: 'Essence Mascara Lash Princess',
+        price: '110 $ ',
+        image: '../../../public/product.svg',
+    },
+];
