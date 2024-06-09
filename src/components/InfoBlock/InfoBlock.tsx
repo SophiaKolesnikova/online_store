@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './styles.module.css';
 import Button from '../Button/Button.tsx';
+import { scrollToElement } from '../../helpers.ts';
+import { Link } from 'react-router-dom';
 
 const InfoBlock: React.FC = () => {
     return (
@@ -15,7 +17,15 @@ const InfoBlock: React.FC = () => {
                 other products at low prices
             </p>
             <div className={styles.button}>
-                <Button text="Go to shopping" />
+                <Link
+                    to="/#catalog"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        scrollToElement('catalog');
+                    }}
+                >
+                    <Button text="Go to shopping" />
+                </Link>
             </div>
             <p className={styles.background}>Goods4you</p>
         </div>

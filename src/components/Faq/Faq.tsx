@@ -5,7 +5,7 @@ import { questions } from '../../data/questions.ts';
 
 const Faq: React.FC = () => {
     return (
-        <div className={styles.section}>
+        <div className={styles.section} id="faq">
             <h2 className={styles.title}>FAQ</h2>
             {questions.map((question) => (
                 <Question key={question.id} question={question} />

@@ -1,0 +1,125 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+    padding: 55px 130px 109px;
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        gap: 42px;
+
+        .images {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .img {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+            }
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            .wrapper {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 150px;
+
+                .title {
+                    font-weight: 600;
+                    font-size: 23px;
+                    color: #444B58;
+                    margin: 0;
+                    padding-bottom: 24px;
+                }
+
+                .sku {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 10px;
+
+                    .label {
+                        font-weight: 600;
+                        font-size: 16px;
+                        color: #B2B5BB;
+                    }
+
+                    .id {
+                        font-weight: 600;
+                        font-size: 16px;
+                        color: #444B58;
+                    }
+                }
+            }
+
+            .description {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+
+                .category {
+                    color: #B2B5BB;
+                    font-weight: 600;
+                    font-size: 16px;
+                    margin: 0;
+                }
+
+                .text {
+                    color: #444B58;
+                    font-weight: 600;
+                    font-size: 16px;
+                }
+            }
+
+            .button {
+                padding-top: 43px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1035px) {
+    .container {
+        padding: 30px 80px 70px;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            /*padding: 15px;*/
+        }
+    }
+}
+
+@media (max-width: 625px) {
+    .container {
+        padding: 30px 80px 70px;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+
+            .images {
+                .img {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+            }
+            .info {
+                .wrapper {
+                    display: flex;
+                    flex-direction: column-reverse;
+                    gap: 20px;
+                }
+            }
+        }
+    }
+}

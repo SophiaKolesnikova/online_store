@@ -1,23 +1,24 @@
 import React from 'react';
 import styles from './styles.module.css';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
     return (
         <footer className={styles.footer}>
-            <div className={styles.logo}>
+            <Link to={'/'} className={styles.logo}>
                 <span className={styles.text}>Goods4you</span>
-            </div>
+            </Link>
             <nav>
                 <ul className={styles.links}>
                     <li>
-                        <a href="#" className={styles.link}>
+                        <Link to={'/'} className={styles.link}>
                             Catalog
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#" className={styles.link}>
+                        <Link to={'/'} className={styles.link}>
                             FAQ
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </nav>

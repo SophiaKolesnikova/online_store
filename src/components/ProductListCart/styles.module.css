@@ -1,0 +1,85 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 48px;
+    padding: 22px 0px;
+
+    .info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+
+        .link {
+            text-decoration: none;
+        }
+
+        .description {
+            display: flex;
+            flex-direction: column;
+            color: #444B58;
+
+            .title {
+                margin: 0;
+                font-weight: 600;
+                font-size: 16px;
+                text-decoration: none;
+                color:#444B58;
+            }
+
+            .title:hover {
+                text-decoration: underline;
+                   color:#444B58;
+                }
+
+            .price {
+                margin: 0;
+                font-weight: 400;
+                font-size: 18px;
+            }
+        }
+    }
+
+    .action {
+        display: flex;
+        flex-direction: row;
+        gap: 9px;
+    }
+
+    .delete {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        cursor: pointer;
+
+        color: #B2B5BB;
+        font-weight: 400;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 683px) {
+    .content {
+       display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+
+        .info {
+            display: flex;
+            flex-direction: column;
+
+        }
+    }
+}
+

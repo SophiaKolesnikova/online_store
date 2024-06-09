@@ -7,6 +7,8 @@
     background: #444B58;
 
     .logo {
+        text-decoration: none;
+
         .text {
             font-size: 30px;
             color: white;
@@ -37,5 +39,24 @@
             font-size: 14px;
             font-weight: 600;
         }
+
+        .link:hover {
+            text-decoration: underline;
+            color: #C4C4C4;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .footer {
+        padding: 15px 50px;
+    }
+}
+
+@media (max-width: 395px) {
+    .footer {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 }

@@ -3,11 +3,22 @@
     flex-direction: column;
     gap: 10px;
 
+    .image:hover {
+        filter: brightness(90%);
+        transition: ease-in-out 0.5s;
+    }
+
     .info {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         gap: 10px;
+
+        .action {
+            display: flex;
+            flex-direction: row;
+            gap: 9px;
+        }
 
         .description {
             display: flex;
@@ -18,6 +29,13 @@
                 margin: 0;
                 font-weight: 600;
                 font-size: 16px;
+                text-decoration: none;
+                color: #444B58;
+            }
+
+            .title:hover {
+                text-decoration: underline;
+                color: #444B58;
             }
 
             .price {

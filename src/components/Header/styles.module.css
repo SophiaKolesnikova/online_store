@@ -38,5 +38,25 @@
             font-size: 14px;
             font-weight: 600;
         }
+
+        .link:hover {
+            text-decoration: underline;
+            color: #C4C4C4;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        padding: 15px 50px 0px;
+    }
+}
+
+@media (max-width: 500px) {
+    .header {
+        padding: 15px 50px 0px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 }

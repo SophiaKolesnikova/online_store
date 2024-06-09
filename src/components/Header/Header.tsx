@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 import { Link } from 'react-router-dom';
+import { scrollToElement } from '../../helpers.ts';
 
 const Header: React.FC = () => {
     return (
@@ -11,14 +12,28 @@ const Header: React.FC = () => {
             <nav>
                 <ul className={styles.navbar}>
                     <li>
-                        <a href="#" className={styles.link}>
+                        <Link
+                            to={'/#catalog'}
+                            className={styles.link}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                scrollToElement('catalog');
+                            }}
+                        >
                             Catalog
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#" className={styles.link}>
+                        <Link
+                            to={'/#faq'}
+                            className={styles.link}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                scrollToElement('faq');
+                            }}
+                        >
                             FAQ
-                        </a>
+                        </Link>
                     </li>
                     <li>
                         <Link to={'/cart'} className={styles.link}>
@@ -28,8 +43,6 @@ const Header: React.FC = () => {
                                 alt="cart"
                             />
                         </Link>
-
-                        {/*</a>*/}
                     </li>
                 </ul>
             </nav>
