@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
-import styles from './styles.module.css';
 import { QuestionListType } from 'app/types';
+import styles from './styles.module.css';
 
 interface IQuestionProps {
     question?: QuestionListType;
 }
 
 const Question: React.FC<IQuestionProps> = ({ question }) => {
+    const [isRotated, setIsRotated] = useState(false);
     const [isShowAnswer, setIsShowAnswer] = useState(false);
 
     const handleShowMore = () => {
         setIsShowAnswer(!isShowAnswer);
+    };
+
+    const handleIconClick = () => {
+        setIsRotated(!isRotated);
     };
 
     return (
@@ -19,11 +24,11 @@ const Question: React.FC<IQuestionProps> = ({ question }) => {
                 <p className={styles.question}>{question?.question}</p>
                 <button onClick={handleShowMore} className={styles.button}>
                     <img
-                        src={
-                            isShowAnswer
-                                ? '../../../public/Vector.svg'
-                                : '../../../public/+.svg'
+                        onClick={handleIconClick}
+                        className={
+                            isRotated ? `${styles.icon}` : `${styles.rotated}`
                         }
+                        src="../../../public/Vector.svg"
                         alt="show"
                     />
                 </button>
