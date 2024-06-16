@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
-import Button from '../Button/Button.tsx';
-import { scrollToElement } from '../../helpers.ts';
+import Button from '../Atoms/Button/Button.tsx';
+import { scrollToElement } from '../../helpers/scrollToElement.ts';
 import { Link } from 'react-router-dom';
 
 const InfoBlock: React.FC = () => {
@@ -24,7 +24,9 @@ const InfoBlock: React.FC = () => {
                         scrollToElement('catalog');
                     }}
                 >
-                    <Button text="Go to shopping" />
+                    <Button size={'large'} variant={'primary'} type={'button'}>
+                        Go to shopping
+                    </Button>
                 </Link>
             </div>
             <p className={styles.background}>Goods4you</p>

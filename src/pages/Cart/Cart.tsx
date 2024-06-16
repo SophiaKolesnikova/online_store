@@ -5,11 +5,11 @@ import MyCart from '../../components/MyCart/MyCart.tsx';
 
 const Cart: React.FC = () => {
     return (
-        <div>
+        <>
             <Header />
             <MyCart />
             <Footer />
-        </div>
+        </>
     );
 };
 

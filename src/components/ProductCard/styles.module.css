@@ -2,8 +2,22 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-width: 370px;
 
-    .image:hover {
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        max-width: 370px;
+
+        .image {
+            height: 293px;
+            max-width: 100%;
+        }
+    }
+
+    .wrapper:hover {
         filter: brightness(90%);
         transition: ease-in-out 0.5s;
     }
@@ -44,5 +58,14 @@
                 font-size: 18px;
             }
         }
+    }
+}
+
+@media (max-width: 430px) {
+    .card {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 200px;
     }
 }
