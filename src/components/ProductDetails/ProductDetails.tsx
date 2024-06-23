@@ -1,8 +1,9 @@
-import React, { useMemo } from 'react';
-import Button from '../Atoms/Button/Button.tsx';
+import React, { useEffect, useMemo } from 'react';
+import { useGetOneProductQuery } from '../../store/api/products.api.ts';
+import { useNavigate } from 'react-router-dom';
 import Title from '../Atoms/Title/Title.tsx';
 import PhotoGallery from '../PhotoGallery/PhotoGallery.tsx';
-import { useGetOneProductQuery } from '../../store/api/products.api.ts';
+import CartButtonGroup from '../CartButtonGroup/CartButtonGroup.tsx';
 import styles from './styles.module.css';
 
 interface IProductDetailsProps {
@@ -11,12 +12,20 @@ interface IProductDetailsProps {
 
 const ProductDetails: React.FC<IProductDetailsProps> = ({ id }) => {
     const productId = Number(id);
+    const navigate = useNavigate();
 
     const {
         isError: getProductError,
         isLoading: getProductLoading,
         data: product,
+        isSuccess,
     } = useGetOneProductQuery(productId);
+
+    useEffect(() => {
+        if (!getProductLoading && !isSuccess) {
+            navigate('/');
+        }
+    }, []);
 
     const basePrice = product?.price;
     const discountPercentage = product?.discountPercentage;
@@ -47,7 +56,7 @@ const ProductDetails: React.FC<IProductDetailsProps> = ({ id }) => {
     );
 
     return (
-        <div className={styles.container}>
+        <main className={styles.container}>
             <Title
                 size={'large'}
                 variant={'secondary'}
@@ -75,9 +84,9 @@ const ProductDetails: React.FC<IProductDetailsProps> = ({ id }) => {
                 </p>
             )}
             {product ? (
-                <div className={styles.content}>
+                <section className={styles.content}>
                     <PhotoGallery photos={product.images} />
-                    <div className={styles.info}>
+                    <article className={styles.info}>
                         <div className={styles.wrapper}>
                             <h2 className={styles.title}>{product.title}</h2>
                             <div className={styles.sku}>
@@ -130,18 +139,12 @@ const ProductDetails: React.FC<IProductDetailsProps> = ({ id }) => {
                             </span>
                         </div>
                         <div className={styles.button}>
-                            <Button
-                                size={'large'}
-                                variant={'primary'}
-                                type={'button'}
-                            >
-                                Add to cart
-                            </Button>
+                            <CartButtonGroup />
                         </div>
-                    </div>
-                </div>
+                    </article>
+                </section>
             ) : null}
-        </div>
+        </main>
     );
 };
 

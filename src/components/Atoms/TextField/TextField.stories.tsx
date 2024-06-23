@@ -20,6 +20,14 @@ const meta: Meta<typeof TextField> = {
                 type: 'radio',
             },
         },
+        height: {
+            type: 'string',
+            defaultValue: 'small',
+            options: ['large', 'small'],
+            control: {
+                type: 'radio',
+            },
+        },
     },
 };
 
@@ -30,5 +38,6 @@ export const Primary: Story = {
     args: {
         value: 'Search...',
         variant: 'primary',
+        height: 'large',
     },
 };

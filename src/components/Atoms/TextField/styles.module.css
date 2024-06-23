@@ -1,9 +1,10 @@
 .primary {
-    width: 77%;
+    width: 100%;
     padding: 8px 16px;
     outline: none;
     border-radius: 4px;
     border: none;
+    box-sizing: border-box;
 
     background: #F6F6F6;
     font-weight: 400;
@@ -16,7 +17,17 @@
 }
 
 .large {
-    width: 200px;
     height: 67px;
+    width: 100%;
 }
 
+.small {
+    width: 50%;
+}
+
+@media (max-width: 700px) {
+    .primary {
+        padding: 8px;
+        gap: 20px;
+    }
+}

@@ -1,16 +1,39 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import FormGroup from './FormGroup.tsx';
-import './styles.module.css';
 import Button from '../../Atoms/Button/Button.tsx';
-import Title from '../../Atoms/Title/Title.tsx';
 import TextField from '../../Atoms/TextField/TextField.tsx';
+import './styles.module.css';
 
 const meta: Meta<typeof FormGroup> = {
     title: 'Molecules/FormGroup',
     component: FormGroup,
-    // subcomponents: { Button, Title },
-    // tags: ['autodocs'],
-    // argTypes: {}
+    tags: ['autodocs'],
+    argTypes: {
+        padding: {
+            type: 'string',
+            defaultValue: 's',
+            options: ['m', 's', 'none'],
+            control: {
+                type: 'radio',
+            },
+        },
+        gap: {
+            type: 'string',
+            defaultValue: 'small',
+            options: ['large', 'small'],
+            control: {
+                type: 'radio',
+            },
+        },
+        direction: {
+            type: 'string',
+            defaultValue: 'row',
+            options: ['row', 'column'],
+            control: {
+                type: 'radio',
+            },
+        },
+    },
 };
 export default meta;
 
@@ -20,6 +43,7 @@ export const Search: Story = {
     render: (args) => (
         <FormGroup {...args}>
             <TextField
+                height={'large'}
                 type={'text'}
                 variant={'primary'}
                 placeholder={'Search by title'}

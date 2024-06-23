@@ -2,9 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 130px;
-    background: #444B58;
-    height: 80px;
+    padding: 20px 130px 0px;
+
 
     .logo {
         text-decoration: none;

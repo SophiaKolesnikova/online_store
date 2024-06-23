@@ -7,7 +7,9 @@ import Counter from '../Counter/Counter.tsx';
 import styles from './styles.module.css';
 
 const Header: React.FC = () => {
-    const { carts } = useAppSelector((state) => state.carts);
+    const { isLoading, cart } = useAppSelector((state) => state.cart);
+    const userId = localStorage.getItem('userId');
+    const authToken = localStorage.getItem('authToken');
 
     return (
         <header className={styles.header}>
@@ -16,64 +18,69 @@ const Header: React.FC = () => {
                     Goods4you
                 </Title>
             </Link>
-            <nav>
-                <ul className={styles.navbar}>
-                    <li>
-                        <Link
-                            to={'/#catalog'}
-                            className={styles.link}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                scrollToElement('catalog');
-                            }}
-                        >
-                            Catalog
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to={'/#faq'}
-                            className={styles.link}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                scrollToElement('faq');
-                            }}
-                        >
-                            FAQ
-                        </Link>
-                    </li>
-                    <li>
-                        {carts ? (
-                            carts.map((cart) => (
-                                <Link
-                                    key={cart.userId}
-                                    to={`/cart/${cart.userId}`}
-                                    className={styles.link}
-                                >
-                                    Cart
-                                    <div className={styles.cart}>
+            {authToken ? (
+                <nav>
+                    <ul className={styles.navbar}>
+                        <li>
+                            <Link
+                                to={'/#catalog'}
+                                className={styles.link}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    scrollToElement('catalog');
+                                }}
+                            >
+                                Catalog
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to={'/#faq'}
+                                className={styles.link}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    scrollToElement('faq');
+                                }}
+                            >
+                                FAQ
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to={`/cart/${userId}`}
+                                className={styles.link}
+                            >
+                                Cart
+                                <div className={styles.cart}>
+                                    {isLoading ? (
                                         <img
                                             src="../../../public/cart-link.svg"
                                             alt="cart"
                                         />
-                                        <Counter
-                                            key={cart.id}
-                                            totalQuantity={cart.totalQuantity}
-                                        />
-                                    </div>
-                                </Link>
-                            ))
-                        ) : (
-                            <div className={styles.cart}>
-                                <img
-                                    src="../../../public/cart-link.svg"
-                                    alt="cart"
-                                />
-                            </div>
-                        )}
-                    </li>
-                </ul>
-            </nav>
+                                    ) : (
+                                        <>
+                                            <img
+                                                src="../../../public/cart-link.svg"
+                                                alt="cart"
+                                            />
+                                            {!isLoading && cart.length
+                                                ? cart.map((cart) => (
+                                                      <Counter
+                                                          key={cart.id}
+                                                          totalQuantity={
+                                                              cart.totalQuantity
+                                                          }
+                                                      />
+                                                  ))
+                                                : null}
+                                        </>
+                                    )}
+                                </div>
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+            ) : null}
         </header>
     );
 };

@@ -1,16 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&family=Arial:wght@400;600;700&display=swap');
 
+html  {
+    position: relative;
+    min-height: 100%;
+}
 
 body {
     font: 16px/1.4 'Jost', sans-serif;
     min-height: 100vh;
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     color: white;
     background: white;
+    padding-bottom: 80px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+    background: #444B58;
 }
 
 
