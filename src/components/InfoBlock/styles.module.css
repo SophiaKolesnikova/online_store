@@ -1,0 +1,37 @@
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1;
+    padding: 100px 130px 0px;
+    background: #484283;
+
+    .text {
+        font-weight: 400;
+        font-size: 36px;
+        margin: 0;
+    }
+
+    .description {
+        font-weight: 600;
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .button {
+        margin-top: 20px;
+        margin-bottom: 93px;
+    }
+
+    .background {
+        position: absolute;
+        top: 200px;
+        left: 162px;
+        bottom: 200px;
+        z-index: -1;
+        color: #FFFFFF1F;
+        font-weight: 700;
+        font-size: 200px;
+        margin: 0;
+    }
+}
