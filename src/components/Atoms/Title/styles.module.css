@@ -1,0 +1,25 @@
+.primary {
+    font-weight: 700;
+    font-size: 30px;
+    color: #FFFFFF;
+    margin: 0;
+    font-family: 'Jost', sans-serif;
+}
+
+.secondary {
+    font-weight: 700;
+    font-size: 30px;
+    color: #444B58;
+    margin: 0;
+    font-family: 'Jost', sans-serif;
+}
+
+.large {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.medium {
+    font-weight: 600;
+    font-size: 24px;
+}

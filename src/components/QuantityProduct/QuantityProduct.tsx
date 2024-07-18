@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.module.css';
 
 interface IQuantityProductProps {
-    quantity: number;
+    quantity?: number;
 }
 
 const QuantityProduct: React.FC<IQuantityProductProps> = ({ quantity }) => {

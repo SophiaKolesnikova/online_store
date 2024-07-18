@@ -9,18 +9,6 @@
         flex-direction: row;
         gap: 42px;
 
-        .images {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-
-            .img {
-                display: flex;
-                flex-direction: row;
-                gap: 20px;
-            }
-        }
-
         .info {
             display: flex;
             flex-direction: column;
@@ -78,10 +66,19 @@
                     font-weight: 600;
                     font-size: 16px;
                 }
+
+                .rating {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 4px;
+                }
             }
 
             .button {
                 padding-top: 43px;
+
             }
         }
     }
@@ -94,7 +91,6 @@
         .content {
             display: flex;
             flex-direction: column;
-            /*padding: 15px;*/
         }
     }
 }

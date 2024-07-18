@@ -1,0 +1,22 @@
+.primary {
+    width: 77%;
+    padding: 8px 16px;
+    outline: none;
+    border-radius: 4px;
+    border: none;
+
+    background: #F6F6F6;
+    font-weight: 400;
+    font-size: 16px;
+    color: #161616;
+}
+
+.primary::placeholder {
+    color: #B2B5BB;
+}
+
+.large {
+    width: 200px;
+    height: 67px;
+}
+

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import styles from './styles.module.css';
 import { ProductType } from 'app/types';
-import SmallButton from '../SmallButton/SmallButton.tsx';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import QuantityProduct from '../QuantityProduct/QuantityProduct.tsx';
+import Button from '../Atoms/Button/Button.tsx';
+import styles from './styles.module.css';
 
 interface IProductCardProps {
     product: ProductType;
@@ -23,14 +23,7 @@ const ProductCard: React.FC<IProductCardProps> = ({ product, addToCart }) => {
     };
 
     const handleDecreaseQuantity = () => {
-        setQuantity((prevQuantity) => Math.max(prevQuantity - 1, 0));
-    };
-
-    const navigate = useNavigate();
-
-    const toProductDetails = (e: React.MouseEvent<HTMLElement>) => {
-        e.preventDefault();
-        navigate(`/product/${product?.id}`, { state: { product } });
+        setQuantity((prevQuantity) => Math.max(prevQuantity - 1, 1));
     };
 
     const handleAddToCart = (product: ProductType, quantity: number) => {
@@ -40,24 +33,28 @@ const ProductCard: React.FC<IProductCardProps> = ({ product, addToCart }) => {
 
     return (
         <div className={styles.card}>
-            {/*<Link to={`/product/${product?.id}`}>*/}
-            <img
-                src={product?.image}
-                className={styles.image}
-                alt="product"
-                onClick={toProductDetails}
-            />
-            {/*</Link>*/}
+            <Link key={product.id} to={`/products/${product.id}`}>
+                <div className={styles.wrapper}>
+                    <img
+                        src={product.images[0]}
+                        className={styles.image}
+                        alt="product"
+                    />
+                </div>
+            </Link>
             <div className={styles.info}>
                 <div className={styles.description}>
                     <Link to={'#'} className={styles.title}>
-                        {product?.title}
+                        {product.title}
                     </Link>
-                    <p className={styles.price}>{product?.price}</p>
+                    <p className={styles.price}>{product.price}</p>
                 </div>
                 {!isShowBtnGroup && (
                     <div className={styles.action}>
-                        <SmallButton
+                        <Button
+                            size={'small'}
+                            variant={'default'}
+                            type={'button'}
                             icon="../../../public/cart-button.svg"
                             onClick={() => {
                                 handleShowButtonGroup();
@@ -69,12 +66,18 @@ const ProductCard: React.FC<IProductCardProps> = ({ product, addToCart }) => {
 
                 {isShowBtnGroup && (
                     <div className={styles.action}>
-                        <SmallButton
+                        <Button
+                            size={'small'}
+                            variant={'default'}
+                            type={'button'}
                             icon={'../../../public/minus.svg'}
                             onClick={handleDecreaseQuantity}
                         />
                         <QuantityProduct quantity={quantity} />
-                        <SmallButton
+                        <Button
+                            size={'small'}
+                            variant={'default'}
+                            type={'button'}
                             icon={'../../../public/plus.svg'}
                             onClick={handleIncreaseQuantity}
                         />

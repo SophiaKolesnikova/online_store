@@ -8,13 +8,7 @@
 
     .logo {
         text-decoration: none;
-        .text {
-            font-size: 30px;
-            color: white;
-            font-weight: 700;
-            margin: 0;
-            padding-bottom: 9px;
-        }
+        padding-bottom: 9px;
     }
 
     .navbar {
@@ -42,6 +36,12 @@
         .link:hover {
             text-decoration: underline;
             color: #C4C4C4;
+        }
+
+        .cart {
+            display: flex;
+            gap: 0;
+            position: relative;
         }
     }
 }
