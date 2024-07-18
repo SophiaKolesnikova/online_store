@@ -5,9 +5,11 @@ import classes from './styles.module.css';
 interface TextFieldProps {
     value?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    placeholder?: 'Search by title';
+    placeholder?: string;
     variant: 'primary';
     type: 'text';
+    height: 'large' | 'small';
+    required?: boolean;
 }
 
 const TextField: React.FC<TextFieldProps> = ({
@@ -16,18 +18,19 @@ const TextField: React.FC<TextFieldProps> = ({
     type,
     onChange,
     placeholder,
+    height,
+    required,
 }) => {
-    const mainCn = cn(classes.input, classes[variant]);
+    const mainCn = cn(classes.primary, classes[variant], classes[height]);
     return (
-        <div>
-            <input
-                type={type}
-                className={mainCn}
-                placeholder={placeholder}
-                value={value}
-                onChange={onChange}
-            />
-        </div>
+        <input
+            type={type}
+            className={mainCn}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            required={required}
+        />
     );
 };
 

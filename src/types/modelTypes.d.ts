@@ -29,6 +29,9 @@ declare module 'app/types' {
         meta: Meta;
         images: string[];
         thumbnail: string;
+        discountedTotal: number;
+        quantity: number;
+        total: number;
     };
 
     export type CartsServerResponse<T> = {
@@ -40,7 +43,7 @@ declare module 'app/types' {
 
     export type CartType = {
         id: number;
-        products: ProductCartType[];
+        products: ProductType[];
         total: number;
         discountedTotal: number;
         userId: number;
@@ -54,14 +57,17 @@ declare module 'app/types' {
         answer: string;
     };
 
-    export type ProductCartType = {
+    export type AuthType = {
         id: number;
-        title: string;
-        price: number;
-        quantity: number;
-        total: number;
-        discountPercentage: number;
-        discountedTotal: number;
-        thumbnail: string;
+        username: string;
+        password: string;
+        expiresInMins: number;
+        email: string;
+        firstName: string;
+        lastName: string;
+        gender: string;
+        image: string;
+        token: string;
+        refreshToken: string;
     };
 }

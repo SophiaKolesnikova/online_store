@@ -1,14 +1,30 @@
 import React from 'react';
-import styles from './styles.module.css';
+import cn from 'classnames';
+import classes from './styles.module.css';
 
 interface FormGroupProps {
-    onSubmit?: () => void;
+    onSubmit?: (e: React.FormEvent) => void;
     children: React.ReactNode;
+    gap: 'small' | 'large';
+    direction: 'row' | 'column';
+    padding: 's' | 'm' | 'none';
 }
 
-const FormGroup: React.FC<FormGroupProps> = ({ onSubmit, children }) => {
+const FormGroup: React.FC<FormGroupProps> = ({
+    onSubmit,
+    children,
+    gap,
+    direction,
+    padding,
+}) => {
+    const mainCn = cn(
+        classes.form,
+        classes[direction],
+        classes[gap],
+        classes[padding]
+    );
     return (
-        <form className={styles.search} onSubmit={onSubmit}>
+        <form className={mainCn} onSubmit={onSubmit}>
             {children}
         </form>
     );

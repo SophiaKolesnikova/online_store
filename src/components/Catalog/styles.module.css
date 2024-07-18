@@ -5,28 +5,6 @@
     background: white;
     padding: 54px 130px 30px;
 
-    .search {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-
-        .input {
-            width: 77%;
-            padding: 8px 16px;
-            outline: none;
-            border-radius: 4px;
-            border: none;
-
-            background: #F6F6F6;
-            font-weight: 400;
-            font-size: 16px;
-            color: #161616;
-        }
-        .input::placeholder {
-            color: #B2B5BB;
-        }
-    }
-
     .list {
         display: grid;
         grid-template-columns: repeat(3, 370px);

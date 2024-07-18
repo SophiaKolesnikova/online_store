@@ -2,49 +2,31 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Button from '../Atoms/Button/Button.tsx';
 import Title from '../Atoms/Title/Title.tsx';
 import { ProductType } from 'app/types';
-import {
-    useGetProductsQuery,
-    useSearchProductsQuery,
-} from '../../store/api/products.api.ts';
+import { useGetProductsQuery } from '../../store/api/products.api.ts';
 import ProductCard from '../ProductCard/ProductCard.tsx';
 import { useDebounce } from '../../hooks/debounce.ts';
-import { useAppDispatch } from '../../store/hooks.ts';
-import { useGetCartsQuery } from '../../store/api/carts.api.ts';
-import { setCarts } from '../../store/cartsSlice.ts';
 import styles from './styles.module.css';
+import FormGroup from '../Molecules/FormGroup/FormGroup.tsx';
+import TextField from '../Atoms/TextField/TextField.tsx';
 
 const Catalog: React.FC = () => {
     const [skip, setSkip] = useState(0);
-    const [limit, setLimit] = useState(9);
+    const limit = 9;
+    const [searchTerm, setSearchTerm] = useState('');
+    const debounce = useDebounce(searchTerm);
     const {
         isError: getProductsError,
         isLoading: getProductsLoading,
         data: products,
-    } = useGetProductsQuery({ skip, limit });
-    console.log(products);
-
-    const userId = 134;
-    const { data } = useGetCartsQuery(userId);
-    const dispatch = useAppDispatch();
-    const [productsList, setProductsList] = useState<ProductType[]>([]);
-    const [cart, setCart] = useState<ProductType[]>([]);
-
-    const [searchTerm, setSearchTerm] = useState('');
-    const debounce = useDebounce(searchTerm);
-
-    const {
-        data: searchProducts,
-        isLoading: searchProductsLoading,
-        isError: searchProductsError,
-    } = useSearchProductsQuery(debounce, {
-        skip: debounce.length < 2,
+    } = useGetProductsQuery({
+        skip,
+        limit,
+        search: debounce,
     });
 
-    useEffect(() => {
-        dispatch(setCarts(data));
-    }, [dispatch, data]);
+    const [productsList, setProductsList] = useState<ProductType[]>([]);
 
-    const filteredResults = searchProducts?.filter((item) =>
+    const filteredResults = products?.filter((item) =>
         item.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -55,10 +37,6 @@ const Catalog: React.FC = () => {
     const onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         return filteredResults;
-    };
-
-    const addToCart = (product: ProductType) => {
-        setCart([...cart, product]);
     };
 
     const handleShowMore = useCallback(() => {
@@ -74,34 +52,28 @@ const Catalog: React.FC = () => {
     }, [products]);
 
     return (
-        <div className={styles.container} id="catalog">
+        <section className={styles.container} id="catalog">
             <Title size={'large'} variant={'secondary'}>
                 Catalog
             </Title>
-            {/*<FormGroup>*/}
-            {/*    <TextField*/}
-            {/*        type={'text'}*/}
-            {/*        variant={'primary'}*/}
-            {/*        value={searchTerm}*/}
-            {/*        onChange={handleSearch}*/}
-            {/*        placeholder={'Search by title'}*/}
-            {/*    />*/}
-            {/*    <Button size={'large'} variant={'primary'} type={'button'}>*/}
-            {/*        Search*/}
-            {/*    </Button>*/}
-            {/*</FormGroup>*/}
-            <form className={styles.search} onSubmit={onSubmit}>
-                <input
-                    type="text"
-                    className={styles.input}
-                    placeholder="Search by title"
+            <FormGroup
+                onSubmit={onSubmit}
+                gap={'small'}
+                padding={'none'}
+                direction={'row'}
+            >
+                <TextField
+                    type={'text'}
+                    variant={'primary'}
+                    height={'large'}
                     value={searchTerm}
                     onChange={handleSearch}
+                    placeholder={'Search by title'}
                 />
                 <Button size={'large'} variant={'primary'} type={'button'}>
                     Search
                 </Button>
-            </form>
+            </FormGroup>
             {getProductsLoading && (
                 <p
                     style={{
@@ -126,44 +98,20 @@ const Catalog: React.FC = () => {
             )}
             <div className={styles.list}>
                 {productsList && productsList.length > 0 && !searchTerm
-                    ? productsList.map((product) => (
+                    ? productsList.map((product, index) => (
                           <ProductCard
-                              key={product.id}
+                              key={product.id + index}
                               product={product}
-                              addToCart={addToCart}
                           />
                       ))
                     : null}
             </div>
-            {searchProductsLoading && (
-                <p
-                    style={{
-                        textAlign: 'center',
-                        color: 'black',
-                        fontSize: '18px',
-                    }}
-                >
-                    Loading...
-                </p>
-            )}
-            {searchProductsError && (
-                <p
-                    style={{
-                        textAlign: 'center',
-                        color: 'red',
-                        fontSize: '18px',
-                    }}
-                >
-                    Something wrong...
-                </p>
-            )}
             <div className={styles.list}>
                 {filteredResults && filteredResults.length > 0 && searchTerm
-                    ? filteredResults.map((product) => (
+                    ? filteredResults.map((product, index) => (
                           <ProductCard
-                              key={product.id}
+                              key={product.id + index}
                               product={product}
-                              addToCart={addToCart}
                           />
                       ))
                     : null}
@@ -179,7 +127,7 @@ const Catalog: React.FC = () => {
                     There is no results.
                 </p>
             ) : null}
-            {products && products.length > 0 ? (
+            {products && products.length > 0 && !filteredResults ? (
                 <div className={styles.show}>
                     <Button
                         size={'large'}
@@ -192,7 +140,7 @@ const Catalog: React.FC = () => {
                     </Button>
                 </div>
             ) : null}
-        </div>
+        </section>
     );
 };
 

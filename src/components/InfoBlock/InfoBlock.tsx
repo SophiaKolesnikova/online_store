@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const InfoBlock: React.FC = () => {
     return (
-        <div className={styles.info}>
+        <section className={styles.info}>
             <p className={styles.text}>
                 Any products from famous brands
                 <br />
@@ -30,7 +30,7 @@ const InfoBlock: React.FC = () => {
                 </Link>
             </div>
             <p className={styles.background}>Goods4you</p>
-        </div>
+        </section>
     );
 };
 

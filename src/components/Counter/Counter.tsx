@@ -8,9 +8,7 @@ interface CounterProps {
 const Counter: React.FC<CounterProps> = ({ totalQuantity }) => {
     return (
         <>
-            {totalQuantity ? (
-                <div className={styles.counter}>{totalQuantity}</div>
-            ) : null}
+            <div className={styles.counter}>{totalQuantity}</div>
         </>
     );
 };
